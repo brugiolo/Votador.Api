@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Votador.Business.Models;
+﻿using Votador.Business.Models;
 
 namespace Votador.Business.Interfaces
 {

@@ -19,7 +19,7 @@ namespace Votador.Business.Services
 
         public async Task Incluir(Usuario usuario)
         {
-            if (!ExecutarValidacao(new UsuarioValidacao(), usuario)) 
+            if (!ExecutarValidacao(new UsuarioValidacao(), usuario))
                 return;
             
             await _usuarioRepository.Incluir(usuario);
