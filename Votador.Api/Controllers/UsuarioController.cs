@@ -8,6 +8,7 @@ using Votador.Business.Interfaces;
 using Votador.Business.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
 namespace Votador.Api.Controllers
 {
@@ -18,21 +19,23 @@ namespace Votador.Api.Controllers
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IUsuarioService _usuarioService;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IUsuarioService usuarioService, IMapper mapper) : base()
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IUsuarioService usuarioService, IMapper mapper, IMediator mediator) : base()
         {
             _usuarioRepositorio = usuarioRepositorio;
             _usuarioService = usuarioService;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         // GET: api/Usuario
         [HttpGet]
         public async Task<IEnumerable<UsuarioViewModel>> Listar()
         {
-            var usuariosViewModel = await _usuarioService.Listar();
+            var usuarioViewModel = await _usuarioService.Listar();
 
-            return _mapper.Map<IEnumerable<UsuarioViewModel>>(usuariosViewModel);
+            return _mapper.Map<IEnumerable<UsuarioViewModel>>(usuarioViewModel);
         }
 
         // GET: api/Usuario/5

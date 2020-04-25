@@ -5,7 +5,6 @@ namespace Votador.Business.Models
 {
     public partial class Voto : Entidade
     {
-        public long Id { get; set; }
         public long UsuarioId { get; set; }
         public long RecursoId { get; set; }
         public string Comentario { get; set; }
@@ -13,5 +12,10 @@ namespace Votador.Business.Models
 
         public virtual Recurso Recurso { get; set; }
         public virtual Usuario Usuario { get; set; }
+
+        public override bool IsValid()
+        {
+            return true;
+        }
     }
 }

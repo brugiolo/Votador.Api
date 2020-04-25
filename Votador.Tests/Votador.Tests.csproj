@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMoqCore" Version="1.0.0" />
+    <PackageReference Include="AutoMoq" Version="2.0.0" />
     <PackageReference Include="Bogus" Version="29.0.2" />
     <PackageReference Include="Castle.Core" Version="4.4.0" />
     <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
+    <PackageReference Include="Cquential.Microsoft.Practices.Unity" Version="2.0.414" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
     <PackageReference Include="MediatR" Version="8.0.1" />

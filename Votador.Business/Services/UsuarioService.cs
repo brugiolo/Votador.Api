@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Votador.Business.Interfaces;
@@ -10,10 +11,12 @@ namespace Votador.Business.Services
     public class UsuarioService : BaseService, IUsuarioService
     {
         private readonly IUsuarioRepositorio _usuarioRepository;
+        private readonly IMediator _mediator;
 
-        public UsuarioService(IUsuarioRepositorio usuarioRepository) : base()
+        public UsuarioService(IUsuarioRepositorio usuarioRepository, IMediator mediator) : base()
         {
             _usuarioRepository = usuarioRepository;
+            _mediator = mediator;
         }
 
         public async Task Incluir(Usuario usuario)
@@ -22,6 +25,7 @@ namespace Votador.Business.Services
                 return;
             
             await _usuarioRepository.Incluir(usuario);
+            await _mediator.Publish("Service - Usuário incluído com sucesso.");
         }
 
         public async Task<Usuario> Obter(int id)
