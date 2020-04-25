@@ -16,7 +16,7 @@ namespace Votador.Business.Models
         public string Email { get; set; }
         public string Senha { get; set; }
         public bool Ativo { get; set; }
-        public int TipoDeUsuario { get; set; }
+        //public TipoDeAcessoEnum TipoDeAcesso { get; set; }
 
         public virtual ICollection<Recurso> Recursos { get; set; }
         public virtual ICollection<Voto> Votos { get; set; }
@@ -28,5 +28,12 @@ namespace Votador.Business.Models
 
             return ValidationResult.IsValid;
         }
+
+        //public enum TipoDeAcessoEnum
+        //{
+        //    DepartamentoPessoal = 1,
+        //    ControleDeProducao = 2,
+        //    AcessoPadrao = 3
+        //}
     }
 }

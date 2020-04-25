@@ -75,7 +75,7 @@ namespace Votador.Tests.Usuarios
                     Email = (valido ? u.Internet.ExampleEmail() : null),
                     Senha = u.Internet.Password(8),
                     Ativo = ativo,
-                    TipoDeUsuario = 2
+                    //TipoDeUsuario = 2
                 });
 
             return faker.Generate(quantidade);

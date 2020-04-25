@@ -75,7 +75,7 @@ namespace Votador.Api.Controllers
             usuarioAtualizacao.Nome = usuarioViewModel.Nome;
             usuarioAtualizacao.Email = usuarioViewModel.Email;
             usuarioAtualizacao.Senha = usuarioViewModel.Senha;
-            usuarioAtualizacao.TipoDeUsuario = usuarioViewModel.TipoDeUsuario;
+            //usuarioAtualizacao.TipoDeUsuario = usuarioViewModel.TipoDeUsuario;
             usuarioAtualizacao.Ativo = usuarioViewModel.Ativo;
 
             await _usuarioService.Atualizar(_mapper.Map<Usuario>(usuarioAtualizacao));

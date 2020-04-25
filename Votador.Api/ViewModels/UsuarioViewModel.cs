@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Votador.Api.ViewModels
 {
@@ -26,7 +22,7 @@ namespace Votador.Api.ViewModels
 
         public bool Ativo { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public int TipoDeUsuario { get; set; }
+        //[Required(ErrorMessage = "O campo {0} é obrigatório")]
+        //public int TipoDeUsuario { get; set; }
     }
 }

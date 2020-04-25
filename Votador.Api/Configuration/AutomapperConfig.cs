@@ -12,7 +12,7 @@ namespace Votador.Api.Configuration
     {
         public AutomapperConfig()
         {
-            CreateMap<Usuario, UsuarioViewModel>().ReverseMap();
+            CreateMap<Recurso, UsuarioViewModel>().ReverseMap();
         }
     }
 }

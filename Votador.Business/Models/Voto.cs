@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Votador.Business.Validations;
 
 namespace Votador.Business.Models
 {
@@ -15,7 +16,10 @@ namespace Votador.Business.Models
 
         public override bool IsValid()
         {
-            return true;
+            var votoValidacao = new VotoValidacao();
+            ValidationResult = votoValidacao.Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

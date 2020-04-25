@@ -25,12 +25,17 @@ namespace Votador.Business.Services
                 return;
             
             await _usuarioRepository.Incluir(usuario);
-            await _mediator.Publish("Service - Usuário incluído com sucesso.");
+            await _mediator.Publish("UsuarioService - Usuário incluído com sucesso.");
         }
 
         public async Task<Usuario> Obter(int id)
         {
-            return await _usuarioRepository.Obter(id);
+            var usuario = await _usuarioRepository.Obter(id);
+            
+            if (usuario != null) 
+                await _mediator.Publish("UsuarioService - Usuário obtido com sucesso.");
+
+            return usuario;
         }
 
         public async Task Atualizar(Usuario usuario)
@@ -39,16 +44,28 @@ namespace Votador.Business.Services
                 return;
 
             await _usuarioRepository.Atualizar(usuario);
+            await _mediator.Publish("UsuarioService - Usuário atualizado com sucesso.");
         }
 
-        public Task Deletar(int id)
+        public async Task Deletar(int id)
         {
-            throw new NotImplementedException();
+            var usuario = await _usuarioRepository.Obter(id);
+
+            if (usuario != null)
+            {
+                await _usuarioRepository.Deletar(id);
+                await _mediator.Publish("UsuarioService - Usuário deletado com sucesso.");
+            }
         }
 
         public async Task<List<Usuario>> Listar()
         {
-            return await _usuarioRepository.Listar();
+            var usuarios = await _usuarioRepository.Listar();
+            
+            if (usuarios.Count > 0)
+                await _mediator.Publish("UsuarioService - Usuários listados com sucesso.");
+
+            return usuarios;
         }
 
         public void Dispose()

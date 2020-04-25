@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Votador.Business.Validations;
 
 namespace Votador.Business.Models
 {
@@ -10,7 +11,7 @@ namespace Votador.Business.Models
             Votos = new HashSet<Voto>();
         }
 
-        public long UsuarioId { get; set; }
+        //public long UsuarioId { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public DateTime DataHoraCadastro { get; set; }
@@ -20,7 +21,10 @@ namespace Votador.Business.Models
 
         public override bool IsValid()
         {
-            return true;
+            var recursoValidacao = new RecursoValidacao();
+            ValidationResult = recursoValidacao.Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

@@ -9,7 +9,7 @@ using Votador.Business.Services;
 using Votador.Data.Context;
 using Votador.Data.Repositorio;
 
-namespace Votador.Api.Controllers
+namespace Votador.Api.Configuration
 {
     public static class InjecaoDependenciaConfig 
     {
