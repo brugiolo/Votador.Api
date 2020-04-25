@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votador.Api", "Votador.Api\Votador.Api.csproj", "{CE045470-249B-4B39-A303-8C2C1BADECBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votador.Api", "Votador.Api\Votador.Api.csproj", "{CE045470-249B-4B39-A303-8C2C1BADECBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votador.Data", "Votador.Data\Votador.Data.csproj", "{37242669-06D7-4D62-8F97-245ABD404BE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votador.Data", "Votador.Data\Votador.Data.csproj", "{37242669-06D7-4D62-8F97-245ABD404BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votador.Business", "Votador.Business\Votador.Business.csproj", "{C50ADA13-165D-44DC-A341-F46D425D4166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votador.Business", "Votador.Business\Votador.Business.csproj", "{C50ADA13-165D-44DC-A341-F46D425D4166}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votador.Sandbox", "Votador.Sandbox\Votador.Sandbox.csproj", "{380267EE-60AE-4823-ABAD-A73D9C1140D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votador.Sandbox", "Votador.Sandbox\Votador.Sandbox.csproj", "{380267EE-60AE-4823-ABAD-A73D9C1140D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votador.Tests", "Votador.Tests\Votador.Tests.csproj", "{E63419F4-CAFF-49F5-8012-98E12E64323A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{380267EE-60AE-4823-ABAD-A73D9C1140D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380267EE-60AE-4823-ABAD-A73D9C1140D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{380267EE-60AE-4823-ABAD-A73D9C1140D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63419F4-CAFF-49F5-8012-98E12E64323A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63419F4-CAFF-49F5-8012-98E12E64323A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63419F4-CAFF-49F5-8012-98E12E64323A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63419F4-CAFF-49F5-8012-98E12E64323A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
