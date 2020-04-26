@@ -7,9 +7,15 @@ namespace Votador.Business.Validations
     {
         public VotoValidacao()
         {
+            RuleFor(u => u.UsuarioId)
+                .NotEmpty().WithMessage("Preencha o campo {PropertyName}.");
+
+            RuleFor(u => u.RecursoId)
+                .NotEmpty().WithMessage("Preencha o campo {PropertyName}.");
+
             RuleFor(u => u.Comentario)
                 .NotEmpty().WithMessage("Preencha o campo {PropertyName}.")
-                .Length(10, 100).WithMessage("O campo {PropertyName} deve ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(10, 500).WithMessage("O campo {PropertyName} deve ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }

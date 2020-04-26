@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Votador.Business.Models;
 
 namespace Votador.Data.Mappings
@@ -25,7 +22,7 @@ namespace Votador.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(500);
 
-            builder.Property(e => e.TipoDeAcesso)
+            builder.Property(e => e.Ativo)
                 .IsRequired();
         }
     }

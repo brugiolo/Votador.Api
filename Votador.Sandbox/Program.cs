@@ -37,21 +37,18 @@ namespace Votador.Sandbox
                 Email = "brugiolo@hotmail.com",
                 Ativo = true,
                 Senha = "123",
-                //TipoDeUsuario = 1
             }, new Usuario
             {
                 Nome = "Laura",
                 Email = "laura.brugiolo@gmail.com",
                 Ativo = true,
                 Senha = "123",
-                //TipoDeUsuario = 2
             }, new Usuario
             {
                 Nome = "Janine",
                 Email = "janinelcarvalho@gmail.com",
                 Ativo = true,
                 Senha = "123",
-                //TipoDeUsuario = 3
             });
 
             context.SaveChanges();

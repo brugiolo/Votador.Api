@@ -15,7 +15,7 @@ namespace Votador.Api.ViewModels
         public int RecursoId { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        [StringLength(100, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres", MinimumLength = 10)]
+        [StringLength(500, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres", MinimumLength = 10)]
         public string Comentario { get; set; }
     }
 }

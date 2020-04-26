@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Votador.Business.Interfaces;
@@ -22,7 +23,9 @@ namespace Votador.Business.Services
         {
             if (!ExecutarValidacao(new VotoValidacao(), voto))
                 return;
-            
+
+            voto.DataHoraVoto = DateTime.Now;
+
             await _votoRepository.Incluir(voto);
             await _mediator.Publish("VotoService - Voto incluído com sucesso.");
         }
