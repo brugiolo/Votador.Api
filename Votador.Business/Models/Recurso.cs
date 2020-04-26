@@ -13,7 +13,7 @@ namespace Votador.Business.Models
 
         public string Titulo { get; set; }
         public string Descricao { get; set; }
-        public DateTime DataHoraCadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
         public string NomeDoAutor { get; set; }
         public string EmailDoAutor { get; set; }
 

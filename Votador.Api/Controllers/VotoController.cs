@@ -61,23 +61,6 @@ namespace Votador.Api.Controllers
             return Ok(votoViewModel);
         }
 
-        // PUT: api/Voto/5
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult> Atualizar(int id, VotoViewModel votoViewModel)
-        //{
-        //    if (!ModelState.IsValid || id != votoViewModel.Id) 
-        //        return BadRequest();
-
-        //    var votoAtualizacao = await _votoService.Obter(id);
-        //    votoAtualizacao.Titulo = votoViewModel.Titulo;
-        //    votoAtualizacao.Descricao = votoViewModel.Descricao;
-
-        //    await _votoService.Atualizar(_mapper.Map<Voto>(votoAtualizacao));
-
-        //    return Ok(votoViewModel);
-        //}
-
-        // DELETE: api/Voto/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<VotoViewModel>> Delete(int id)
         {

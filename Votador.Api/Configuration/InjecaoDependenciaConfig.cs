@@ -37,7 +37,3 @@ namespace Votador.Api.Configuration
         }
     }
 }
-/*
- * System.AggregateException: 'Some services are not able to be constructed'
- * InvalidOperationException: Unable to resolve service for type 'MediatR.IMediator' while attempting to activate 'Votador.Business.Services.RecursoService'.
-*/

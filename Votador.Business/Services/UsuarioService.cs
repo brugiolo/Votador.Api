@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Votador.Business.Configuration;
 using Votador.Business.Interfaces;
 using Votador.Business.Models;
 using Votador.Business.Validations;
@@ -24,7 +25,7 @@ namespace Votador.Business.Services
                 return;
             
             await _usuarioRepository.Incluir(usuario);
-            await _mediator.Publish("UsuarioService - Usuário incluído com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("UsuarioService - Usuário incluído com sucesso."));
         }
 
         public async Task<Usuario> Obter(int id)
@@ -32,7 +33,7 @@ namespace Votador.Business.Services
             var usuario = await _usuarioRepository.Obter(id);
             
             if (usuario != null) 
-                await _mediator.Publish("UsuarioService - Usuário obtido com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("UsuarioService - Usuário obtido com sucesso."));
 
             return usuario;
         }
@@ -43,7 +44,7 @@ namespace Votador.Business.Services
                 return;
 
             await _usuarioRepository.Atualizar(usuario);
-            await _mediator.Publish("UsuarioService - Usuário atualizado com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("UsuarioService - Usuário atualizado com sucesso."));
         }
 
         public async Task Deletar(int id)
@@ -53,7 +54,7 @@ namespace Votador.Business.Services
             if (usuario != null)
             {
                 await _usuarioRepository.Deletar(id);
-                await _mediator.Publish("UsuarioService - Usuário deletado com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("UsuarioService - Usuário deletado com sucesso."));
             }
         }
 
@@ -62,7 +63,7 @@ namespace Votador.Business.Services
             var usuarios = await _usuarioRepository.Listar();
             
             if (usuarios.Count > 0)
-                await _mediator.Publish("UsuarioService - Usuários listados com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("UsuarioService - Usuários listados com sucesso."));
 
             return usuarios;
         }

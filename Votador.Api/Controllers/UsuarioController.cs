@@ -23,11 +23,6 @@ namespace Votador.Api.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Usuario
-        /// <summary>
-        /// Obtém a lista completa de usuários cadastrados no sistema.
-        /// </summary>
-        /// <returns>Lista de objetos do tipo UsuarioViewModel.</returns>
         [HttpGet]
         public async Task<IEnumerable<UsuarioViewModel>> Listar()
         {
@@ -59,6 +54,8 @@ namespace Votador.Api.Controllers
 
             await _usuarioService.Incluir(usuario);
 
+            usuarioViewModel.Id = usuario.Id;
+
             return Ok(usuarioViewModel);
         }
 
@@ -73,7 +70,6 @@ namespace Votador.Api.Controllers
             usuarioAtualizacao.Nome = usuarioViewModel.Nome;
             usuarioAtualizacao.Email = usuarioViewModel.Email;
             usuarioAtualizacao.Senha = usuarioViewModel.Senha;
-            //usuarioAtualizacao.TipoDeUsuario = usuarioViewModel.TipoDeUsuario;
             usuarioAtualizacao.Ativo = usuarioViewModel.Ativo;
 
             await _usuarioService.Atualizar(_mapper.Map<Usuario>(usuarioAtualizacao));

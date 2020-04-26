@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Votador.Business.Configuration;
 using Votador.Business.Interfaces;
 using Votador.Business.Models;
 using Votador.Business.Validations;
@@ -27,7 +28,7 @@ namespace Votador.Business.Services
             voto.DataHoraVoto = DateTime.Now;
 
             await _votoRepository.Incluir(voto);
-            await _mediator.Publish("VotoService - Voto incluído com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("VotoService - Voto incluído com sucesso."));
         }
 
         public async Task<Voto> Obter(int id)
@@ -35,7 +36,7 @@ namespace Votador.Business.Services
             var voto = await _votoRepository.Obter(id);
             
             if (voto != null) 
-                await _mediator.Publish("VotoService - Voto obtido com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("VotoService - Voto obtido com sucesso."));
 
             return voto;
         }
@@ -46,7 +47,7 @@ namespace Votador.Business.Services
                 return;
 
             await _votoRepository.Atualizar(voto);
-            await _mediator.Publish("VotoService - Voto atualizado com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("VotoService - Voto atualizado com sucesso."));
         }
 
         public async Task Deletar(int id)
@@ -56,7 +57,7 @@ namespace Votador.Business.Services
             if (voto != null)
             {
                 await _votoRepository.Deletar(id);
-                await _mediator.Publish("VotoService - Voto deletado com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("VotoService - Voto deletado com sucesso."));
             }
         }
 
@@ -65,7 +66,7 @@ namespace Votador.Business.Services
             var votos = await _votoRepository.Listar();
             
             if (votos.Count > 0)
-                await _mediator.Publish("VotoService - Votos listados com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("VotoService - Votos listados com sucesso."));
 
             return votos;
         }

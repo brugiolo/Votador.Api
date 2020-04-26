@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Votador.Business.Configuration;
 using Votador.Business.Interfaces;
 using Votador.Business.Models;
 using Votador.Business.Validations;
@@ -22,9 +24,10 @@ namespace Votador.Business.Services
         {
             if (!ExecutarValidacao(new RecursoValidacao(), recurso))
                 return;
-            
+
+            recurso.DataCadastro = DateTime.Now;
             await _recursoRepositorio.Incluir(recurso);
-            await _mediator.Publish("RecursoService - Recurso incluído com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("RecursoService - Recurso incluído com sucesso."));
         }
 
         public async Task<Recurso> Obter(int id)
@@ -32,7 +35,7 @@ namespace Votador.Business.Services
             var usuario = await _recursoRepositorio.Obter(id);
             
             if (usuario != null) 
-                await _mediator.Publish("RecursoService - Recurso obtido com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("RecursoService - Recurso obtido com sucesso."));
 
             return usuario;
         }
@@ -43,7 +46,7 @@ namespace Votador.Business.Services
                 return;
 
             await _recursoRepositorio.Atualizar(recurso);
-            await _mediator.Publish("RecursoService - Recurso atualizado com sucesso.");
+            await _mediator.Publish(new NotificacaoTeste("RecursoService - Recurso atualizado com sucesso."));
         }
 
         public async Task Deletar(int id)
@@ -53,7 +56,7 @@ namespace Votador.Business.Services
             if (usuario != null)
             {
                 await _recursoRepositorio.Deletar(id);
-                await _mediator.Publish("RecursoService - Recurso deletado com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("RecursoService - Recurso deletado com sucesso."));
             }
         }
 
@@ -62,7 +65,7 @@ namespace Votador.Business.Services
             var usuarios = await _recursoRepositorio.Listar();
             
             if (usuarios.Count > 0)
-                await _mediator.Publish("RecursoService - Recursos listados com sucesso.");
+                await _mediator.Publish(new NotificacaoTeste("RecursoService - Recursos listados com sucesso."));
 
             return usuarios;
         }

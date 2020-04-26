@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Votador.Api.ViewModels;
@@ -63,6 +64,7 @@ namespace Votador.Api.Controllers
             var recurso = _mapper.Map<Recurso>(recursoViewModel);
 
             await _recursoService.Incluir(recurso);
+            recursoViewModel.Id = recurso.Id;
 
             return Ok(recursoViewModel);
         }

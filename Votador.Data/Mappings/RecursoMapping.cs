@@ -18,7 +18,7 @@ namespace Votador.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(500);
 
-            builder.Property(e => e.DataHoraCadastro).HasColumnType("timestamp with time zone");
+            builder.Property(e => e.DataCadastro).HasColumnType("timestamp with time zone");
 
             builder.Property(e => e.NomeDoAutor)
                 .IsRequired()

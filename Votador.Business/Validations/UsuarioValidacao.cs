@@ -20,10 +20,7 @@ namespace Votador.Business.Validations
 
             RuleFor(u => u.Senha)
                 .NotEmpty().WithMessage("Preencha o campo {PropertyName}.")
-                .Length(8, 200).WithMessage("O campo {PropertyName} deve ter entre {MinLength} e {MaxLength} caracteres.");
-
-            RuleFor(u => u.Ativo)
-                .NotEmpty().WithMessage("Preencha o campo {PropertyName}.");
+                .Length(6, 200).WithMessage("O campo {PropertyName} deve ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }
