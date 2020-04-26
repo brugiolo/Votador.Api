@@ -1,14 +1,10 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Votador.Api.ViewModels;
 using Votador.Business.Interfaces;
 using Votador.Business.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MediatR;
 
 namespace Votador.Api.Controllers
 {
@@ -19,17 +15,19 @@ namespace Votador.Api.Controllers
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IUsuarioService _usuarioService;
         private readonly IMapper _mapper;
-        private readonly IMediator _mediator;
 
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IUsuarioService usuarioService, IMapper mapper, IMediator mediator) : base()
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IUsuarioService usuarioService, IMapper mapper) : base()
         {
             _usuarioRepositorio = usuarioRepositorio;
             _usuarioService = usuarioService;
             _mapper = mapper;
-            _mediator = mediator;
         }
 
         // GET: api/Usuario
+        /// <summary>
+        /// Obtém a lista completa de usuários cadastrados no sistema.
+        /// </summary>
+        /// <returns>Lista de objetos do tipo UsuarioViewModel.</returns>
         [HttpGet]
         public async Task<IEnumerable<UsuarioViewModel>> Listar()
         {
@@ -39,13 +37,13 @@ namespace Votador.Api.Controllers
         }
 
         // GET: api/Usuario/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioViewModel>> Obter(int id)
         {
             var usuarioViewModel = await _usuarioService.Obter(id);
 
             if (usuarioViewModel == null)
-                return NotFound(ModelState);
+                return NotFound();
 
             return _mapper.Map<UsuarioViewModel>(usuarioViewModel);
         }
@@ -55,7 +53,7 @@ namespace Votador.Api.Controllers
         public async Task<ActionResult<UsuarioViewModel>> Incluir(UsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+                return BadRequest();
 
             var usuario = _mapper.Map<Usuario>(usuarioViewModel);
 
@@ -69,7 +67,7 @@ namespace Votador.Api.Controllers
         public async Task<ActionResult> Atualizar(int id, UsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid || id != usuarioViewModel.Id) 
-                return BadRequest(ModelState);
+                return BadRequest();
 
             var usuarioAtualizacao = await _usuarioService.Obter(id);
             usuarioAtualizacao.Nome = usuarioViewModel.Nome;
@@ -91,7 +89,7 @@ namespace Votador.Api.Controllers
             var usuarioViewModel = _mapper.Map<UsuarioViewModel>(usuario);
 
             if (usuarioViewModel == null) 
-                return NotFound(ModelState);
+                return NotFound();
 
             await _usuarioService.Deletar(id);
 

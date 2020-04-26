@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Votador.Api.ViewModels
 {
@@ -10,13 +6,13 @@ namespace Votador.Api.ViewModels
     {
         [Key]
         [ScaffoldColumn(false)]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public long UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public long RecursoId { get; set; }
+        public int RecursoId { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(100, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres", MinimumLength = 10)]

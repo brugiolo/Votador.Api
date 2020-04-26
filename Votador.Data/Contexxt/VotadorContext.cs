@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Votador.Business.Models;
 
 namespace Votador.Data.Context
@@ -16,13 +15,13 @@ namespace Votador.Data.Context
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Voto> Votos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=votador;Username=votadoruser;Password=123");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseNpgsql("Host=localhost;Database=votador;Username=votadoruser;Password=123");
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

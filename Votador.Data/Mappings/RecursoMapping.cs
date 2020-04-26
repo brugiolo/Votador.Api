@@ -23,11 +23,11 @@ namespace Votador.Data.Mappings
 
             builder.Property(e => e.DataHoraCadastro).HasColumnType("timestamp with time zone");
 
-            //builder.HasOne(d => d.Usuario)
-            //    .WithMany(p => p.Recursos)
-            //    .HasForeignKey(d => d.UsuarioId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("Recursos_UsuarioId_fkey");
+            builder.HasOne(d => d.Usuario)
+                .WithMany(p => p.Recursos)
+                .HasForeignKey(d => d.UsuarioId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("Recursos_UsuarioId_fkey");
         }
     }
 }

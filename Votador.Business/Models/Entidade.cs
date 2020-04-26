@@ -1,14 +1,16 @@
 ﻿using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Votador.Business.Models
 {
     public abstract class Entidade
     {
-        public long Id { get; protected set; }
+        public int Id { get; protected set; }
 
+        [NotMapped]
         public ValidationResult ValidationResult { get; protected set; }
 
         public abstract bool IsValid();

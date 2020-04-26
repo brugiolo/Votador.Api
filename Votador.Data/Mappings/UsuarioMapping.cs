@@ -24,6 +24,9 @@ namespace Votador.Data.Mappings
             builder.Property(e => e.Senha)
                 .IsRequired()
                 .HasMaxLength(500);
+
+            builder.Property(e => e.TipoDeAcesso)
+                .IsRequired();
         }
     }
 }

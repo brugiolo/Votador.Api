@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Votador.Business.Validations;
 
@@ -11,7 +12,7 @@ namespace Votador.Business.Models
             Votos = new HashSet<Voto>();
         }
 
-        //public long UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public DateTime DataHoraCadastro { get; set; }

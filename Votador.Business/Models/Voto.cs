@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using Votador.Business.Validations;
 
 namespace Votador.Business.Models
 {
     public partial class Voto : Entidade
     {
-        public long UsuarioId { get; set; }
-        public long RecursoId { get; set; }
+        public int UsuarioId { get; set; }
+        public int RecursoId { get; set; }
         public string Comentario { get; set; }
         public DateTime DataHoraVoto { get; set; }
 

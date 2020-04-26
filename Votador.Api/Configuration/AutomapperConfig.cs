@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Votador.Api.ViewModels;
 using Votador.Business.Models;
 
@@ -12,7 +8,10 @@ namespace Votador.Api.Configuration
     {
         public AutomapperConfig()
         {
-            CreateMap<Recurso, UsuarioViewModel>().ReverseMap();
+            CreateMap<RecursoVoto, RecursoVotoViewModel>().ReverseMap();
+            CreateMap<Recurso, RecursoViewModel>().ReverseMap();
+            CreateMap<Usuario, UsuarioViewModel>().ReverseMap();
+            CreateMap<Voto, VotoViewModel>().ReverseMap();
         }
     }
 }

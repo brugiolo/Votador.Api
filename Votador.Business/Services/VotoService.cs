@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Votador.Business.Interfaces;
@@ -13,7 +12,7 @@ namespace Votador.Business.Services
         private readonly IVotoRepositorio _votoRepository;
         private readonly IMediator _mediator;
 
-        public VotoService(IVotoRepositorio votoRepository, IMediator mediator) : base()
+        public VotoService(IVotoRepositorio votoRepository, IMediator mediator)
         {
             _votoRepository = votoRepository;
             _mediator = mediator;
