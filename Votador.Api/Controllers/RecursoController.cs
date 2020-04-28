@@ -25,7 +25,7 @@ namespace Votador.Api.Controllers
         }
 
         // GET: api/Recurso
-        [HttpGet("resultado")]
+        [HttpGet("Resultado")]
         public async Task<IEnumerable<RecursoVotoViewModel>> Resultado()
         {
             var recursoVoto = await _recursoRepositorio.ObterRecursosMaisVotados();

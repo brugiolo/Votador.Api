@@ -78,19 +78,33 @@ namespace Votador.Api.Controllers
             return Ok(usuarioViewModel);
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Usuario/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<UsuarioViewModel>> Delete(int id)
         {
             var usuario = await _usuarioService.Obter(id);
             var usuarioViewModel = _mapper.Map<UsuarioViewModel>(usuario);
 
-            if (usuarioViewModel == null) 
+            if (usuarioViewModel == null)
                 return NotFound();
 
             await _usuarioService.Deletar(id);
 
             return Ok(usuarioViewModel);
+        }
+
+        // DELETE: api/Usuario/Desativar/5
+        [HttpDelete("{id}/Desativar")]
+        public async Task<ActionResult<UsuarioViewModel>> Desativar(int id)
+        {
+            var usuario = await _usuarioService.Obter(id);
+            if (usuario== null)
+                return NotFound();
+
+            usuario.Ativo = false;
+            await _usuarioService.Atualizar(usuario);
+
+            return Ok(_mapper.Map<UsuarioViewModel>(usuario));
         }
     }
 }
