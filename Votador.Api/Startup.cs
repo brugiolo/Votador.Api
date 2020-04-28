@@ -49,6 +49,8 @@ namespace Votador.Api
             
             services.ConfigurarSwagger();
 
+            services.ConfigurarAutenticacao();
+
             services.ResolverDependencias();
         }
 
@@ -64,9 +66,9 @@ namespace Votador.Api
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             app.UseSwaggerConfig();
+
+            app.UseAutenticacaoConfig();
 
             app.UseEndpoints(endpoints =>
             {

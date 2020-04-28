@@ -12,5 +12,6 @@ namespace Votador.Business.Interfaces
         Task Atualizar(Usuario entidade);
         Task Deletar(int id);
         Task<List<Usuario>> Listar();
+        Task<Usuario> Autenticar(string email, string senha);
     }
 }

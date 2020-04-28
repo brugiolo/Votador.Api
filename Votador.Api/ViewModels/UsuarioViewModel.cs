@@ -22,5 +22,8 @@ namespace Votador.Api.ViewModels
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public bool Ativo { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string Token { get; internal set; }
     }
 }
