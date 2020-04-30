@@ -31,6 +31,7 @@ namespace Votador.Api.Controllers
             if (usuario == null)
                 return Unauthorized(new { message = "Usuário e/ou senha inválidos" });
 
+            loginViewModel.Id = usuario.Id;
             loginViewModel.Token = usuario.Token;
 
             return Ok(loginViewModel);

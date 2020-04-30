@@ -39,6 +39,7 @@ namespace Votador.Api.Controllers
             var votoViewModel = await _votoService.Obter(id);
 
             if (votoViewModel == null)
+            if (votoViewModel == null)
                 return NotFound();
 
             return _mapper.Map<VotoViewModel>(votoViewModel);
@@ -53,7 +54,7 @@ namespace Votador.Api.Controllers
 
             var votoValido = await _votoRepositorio.ObterVotoValido(votoViewModel.UsuarioId, votoViewModel.RecursoId);
             if (!votoValido)
-                return BadRequest("Só é possível votar uma vez em cada recurso.");
+                return Conflict("Só é possível votar uma vez em cada recurso.");
 
             var voto = _mapper.Map<Voto>(votoViewModel);
             await _votoService.Incluir(voto);
