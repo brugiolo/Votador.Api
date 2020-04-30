@@ -29,7 +29,7 @@ namespace Votador.Api.Controllers
             var usuario = await _usuarioService.Autenticar(loginViewModel.Email, loginViewModel.Senha);
 
             if (usuario == null)
-                return BadRequest(new { message = "Usuário e/ou senha inválidos" });
+                return Unauthorized(new { message = "Usuário e/ou senha inválidos" });
 
             loginViewModel.Token = usuario.Token;
 
