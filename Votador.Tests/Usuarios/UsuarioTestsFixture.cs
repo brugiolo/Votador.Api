@@ -9,8 +9,6 @@ using Votador.Business.Interfaces;
 using Votador.Business.Models;
 using Votador.Business.Services;
 using Xunit;
-using Unity.Extension;
-using Votador.Api.Controllers;
 
 namespace Votador.Tests.Usuarios
 {

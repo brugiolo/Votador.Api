@@ -6,8 +6,6 @@ using Votador.Business.Interfaces;
 using Votador.Business.Services;
 using Votador.Data.Context;
 using Votador.Data.Repositorio;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.Extensions.Options;
 
 namespace Votador.Api.Configuration
 {

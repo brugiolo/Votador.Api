@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
-using Votador.Data.Context;
 using Votador.Business.Models;
+using Votador.Data.Context;
 
 namespace Votador.Sandbox
 {
