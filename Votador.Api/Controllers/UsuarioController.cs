@@ -53,9 +53,14 @@ namespace Votador.Api.Controllers
 
             var usuario = _mapper.Map<Usuario>(usuarioViewModel);
 
+            var usuarioJaExistente = await _usuarioRepositorio.ObterUsuarioLogin(usuario.Email) != null;
+            if (usuarioJaExistente)
+                return BadRequest("Já existe um usuário cadastrado com esse e-mail.");
+
             await _usuarioService.Incluir(usuario);
 
             usuarioViewModel.Id = usuario.Id;
+            usuarioViewModel.Senha = usuario.Senha;
 
             return Ok(usuarioViewModel);
         }
