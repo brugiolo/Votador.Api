@@ -1,6 +1,7 @@
 ﻿using Moq;
 using System.Threading;
 using System.Threading.Tasks;
+using Votador.Business.Configuration;
 using Xunit;
 
 namespace Votador.Tests.Usuarios
@@ -25,7 +26,8 @@ namespace Votador.Tests.Usuarios
             await usuarioService.Incluir(usuario);
 
             Fixture.UsuarioRepositorioMock.Verify(u => u.Incluir(usuario), Times.Once);
-            Fixture.MediatorMock.Verify(m => m.Publish(It.IsAny<string>(), CancellationToken.None), Times.Once);
+            Fixture.MediatorMock.Verify(m => m.Publish(
+                It.IsAny<NotificacaoTeste>(), CancellationToken.None), Times.Once);
         }
 
         [Fact(DisplayName = "Incluir Novo Usuario Invalido")]
@@ -38,7 +40,8 @@ namespace Votador.Tests.Usuarios
             await usuarioService.Incluir(usuario);
 
             Fixture.UsuarioRepositorioMock.Verify(u => u.Incluir(usuario), Times.Never);
-            Fixture.MediatorMock.Verify(m => m.Publish(It.IsAny<string>(), CancellationToken.None), Times.Never);
+            Fixture.MediatorMock.Verify(m => m.Publish(
+                It.IsAny<NotificacaoTeste>(), CancellationToken.None), Times.Never);
         }
     }
 }
